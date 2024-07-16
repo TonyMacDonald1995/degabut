@@ -15,14 +15,14 @@ export class QueueClearedListener implements IEventHandler<QueueClearedEvent> {
     const player = this.playerRepository.getByVoiceChannelId(queue.voiceChannelId);
     if (!player) return;
 
-    const embed = new EmbedBuilder({
-      description: `🚮 **<@!${member.id}> cleared the queue**`,
-    });
+    // const embed = new EmbedBuilder({
+    //   description: `🚮 **<@!${member.id}> cleared the queue**`,
+    // });
 
     if (includeNowPlaying) player.audioPlayer.stop();
 
-    await this.playerService.notify(player, {
-      embeds: [embed],
-    });
+    // await this.playerService.notify(player, {
+    //   embeds: [embed],
+    // });
   }
 }

@@ -15,12 +15,12 @@ export class TrackSkippedListener implements IEventHandler<TrackSkippedEvent> {
     const player = this.playerRepository.getByVoiceChannelId(track.queue.voiceChannelId);
     if (!player) return;
 
-    const embed = new EmbedBuilder({
-      description: `⏭ **<@!${member.id}> skipped ${track.mediaSource.title}**`,
-    });
+    // const embed = new EmbedBuilder({
+    //   description: `⏭ **<@!${member.id}> skipped ${track.mediaSource.title}**`,
+    // });
 
-    await this.playerService.notify(player, {
-      embeds: [embed],
-    });
+    // await this.playerService.notify(player, {
+    //   embeds: [embed],
+    // });
   }
 }

@@ -24,13 +24,13 @@ export class TracksRemovedListener implements IEventHandler<TracksRemovedEvent> 
       const trackInfo =
         tracks.length > 1 ? `${tracks.length} tracks` : `${tracks[0].mediaSource.title}`;
 
-      const embed = new EmbedBuilder({
-        description: `🚮 **<@!${member.id}>** removed **${trackInfo}** from the queue`,
-      });
+      // const embed = new EmbedBuilder({
+      //   description: `🚮 **<@!${member.id}>** removed **${trackInfo}** from the queue`,
+      // });
 
-      await this.playerService.notify(player, {
-        embeds: [embed],
-      });
+      // await this.playerService.notify(player, {
+      //   embeds: [embed],
+      // });
     }
   }
 }

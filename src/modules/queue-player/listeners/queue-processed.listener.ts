@@ -96,30 +96,30 @@ export class QueueProcessedListener implements IEventHandler<QueueProcessedEvent
         return this.eventBus.publish(event);
       }
 
-      await this.playerService.notify(
-        player,
-        {
-          content: "🎶 **Now Playing**",
-          embeds: [DiscordUtil.trackToEmbed(queue.nowPlaying)],
-          components: [
-            new ActionRowBuilder<MessageActionRowComponentBuilder>({
-              components: [
-                new ButtonBuilder({
-                  customId: "skip",
-                  label: "Skip",
-                  style: ButtonStyle.Secondary,
-                }),
-                new ButtonBuilder({
-                  customId: `remove-track/${queue.nowPlaying.id}`,
-                  label: "Remove",
-                  style: ButtonStyle.Danger,
-                }),
-              ],
-            }),
-          ],
-        },
-        "NOW_PLAYING",
-      );
+      // await this.playerService.notify(
+      //   player,
+      //   {
+      //     content: "🎶 **Now Playing**",
+      //     embeds: [DiscordUtil.trackToEmbed(queue.nowPlaying)],
+      //     components: [
+      //       new ActionRowBuilder<MessageActionRowComponentBuilder>({
+      //         components: [
+      //           new ButtonBuilder({
+      //             customId: "skip",
+      //             label: "Skip",
+      //             style: ButtonStyle.Secondary,
+      //           }),
+      //           new ButtonBuilder({
+      //             customId: `remove-track/${queue.nowPlaying.id}`,
+      //             label: "Remove",
+      //             style: ButtonStyle.Danger,
+      //           }),
+      //         ],
+      //       }),
+      //     ],
+      //   },
+      //   "NOW_PLAYING",
+      // );
     }
   }
 

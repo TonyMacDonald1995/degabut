@@ -24,38 +24,38 @@ export class TracksAddedListener implements IEventHandler<TracksAddedEvent> {
 
     const requestedBy = member.id;
 
-    if (tracks.length === 1) {
-      const track = tracks[0];
-
-      await this.playerService.notify(player, {
-        content: `🎵 **Added To Queue** (${track.queue.tracks.length})`,
-        embeds: [DiscordUtil.trackToEmbed(track)],
-        components: [
-          new ActionRowBuilder<MessageActionRowComponentBuilder>({
-            components: [
-              new ButtonBuilder({
-                customId: `play-track/${track.id}/${track.mediaSource.id}`,
-                label: "Play",
-                style: ButtonStyle.Success,
-              }),
-              new ButtonBuilder({
-                customId: `remove-track/${track.id}`,
-                label: "Remove",
-                style: ButtonStyle.Danger,
-              }),
-            ],
-          }),
-        ],
-      });
-    } else {
-      await this.playerService.notify(player, {
-        content: "🎵 **Added To Queue**",
-        embeds: [
-          new EmbedBuilder({
-            description: `**<@!${requestedBy}> added ${tracks.length} tracks to queue**`,
-          }),
-        ],
-      });
-    }
+    // if (tracks.length === 1) {
+    //   const track = tracks[0];
+    //
+    //   await this.playerService.notify(player, {
+    //     content: `🎵 **Added To Queue** (${track.queue.tracks.length})`,
+    //     embeds: [DiscordUtil.trackToEmbed(track)],
+    //     components: [
+    //       new ActionRowBuilder<MessageActionRowComponentBuilder>({
+    //         components: [
+    //           new ButtonBuilder({
+    //             customId: `play-track/${track.id}/${track.mediaSource.id}`,
+    //             label: "Play",
+    //             style: ButtonStyle.Success,
+    //           }),
+    //           new ButtonBuilder({
+    //             customId: `remove-track/${track.id}`,
+    //             label: "Remove",
+    //             style: ButtonStyle.Danger,
+    //           }),
+    //         ],
+    //       }),
+    //     ],
+    //   });
+    // } else {
+    //   await this.playerService.notify(player, {
+    //     content: "🎵 **Added To Queue**",
+    //     embeds: [
+    //       new EmbedBuilder({
+    //         description: `**<@!${requestedBy}> added ${tracks.length} tracks to queue**`,
+    //       }),
+    //     ],
+    //   });
+    // }
   }
 }
